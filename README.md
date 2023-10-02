@@ -16,7 +16,8 @@
 
 
 ✅ **Development Environment:** 
-- Unity Platform: PC, Mobile
+- Unity
+- Platform: PC, Mobile
 
 
 ✅ **Acknowledgments:** 
