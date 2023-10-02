@@ -21,4 +21,5 @@
 
 ✅ **Acknowledgments:** 
 This project is based on the freeCodeCamp.org Unity tutorial.
+
 *Feel free to explore the source code and have fun playing "Monster Chase!" If you have any questions or feedback, don't hesitate to reach out.* 🤗
