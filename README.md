@@ -10,7 +10,7 @@
 
 
 ✅ **How to Play:**
-- Use the arrow keys or WASD to move the player character.
+- Use the arrow keys or SD, SPACE to move the player character.
 - Avoid the monsters.
 - Survive as long as possible and try to achieve the highest score.
 
