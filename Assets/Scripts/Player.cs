@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
@@ -8,11 +9,13 @@ public class Player : MonoBehaviour
 {
 
     [SerializeField]
-    private float movingForce = 10f;
+    private float moveForce = 10f;
 
     [SerializeField]
     private float jumpForce = 20f;
 
+  
+    
     [SerializeField]
     private Rigidbody2D myBody;
 
@@ -22,14 +25,17 @@ public class Player : MonoBehaviour
     [SerializeField]
     private SpriteRenderer sr;
 
+    private Animator anim;
+
     private string WALK_ANIMATION = "Walk";
 
-
+    private float movementX;
     private void Awake()
     {
         myBody=GetComponent<Rigidbody2D>();
         myCollider2D=GetComponent<BoxCollider2D>();
         sr= GetComponent<SpriteRenderer>(); 
+        anim= GetComponent<Animator>();
     }
     // Start is called before the first frame update
     void Start()
@@ -40,11 +46,37 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerMovement();
+        PlayerMovement();
+        PlayerAnimation();
+      
+    }
+    private void FixedUpdate()
+    {
+        
+    }
+    private void PlayerMovement()
+    {
+        movementX = Input.GetAxis("Horizontal");
+        transform.position = transform.position + new Vector3(movementX, 0f,0f) * moveForce * Time.deltaTime;
     }
 
-    private void playerMovement()
+    private void PlayerAnimation()
     {
-       
+        if(movementX > 0f)
+        {
+            anim.SetBool(WALK_ANIMATION, true);
+            sr.flipX = false;
+        }
+        else if(movementX < 0f) 
+        {
+            anim.SetBool(WALK_ANIMATION, true);
+            sr.flipX = true;
+        }
+        else
+        {
+            anim.SetBool(WALK_ANIMATION, false);
+        }
     }
+
+    
 }

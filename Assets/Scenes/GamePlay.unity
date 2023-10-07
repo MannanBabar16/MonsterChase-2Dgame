@@ -3303,6 +3303,43 @@ Transform:
   m_Father: {fileID: 2121363281}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &528258480 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1213106195202340369, guid: 2eb0e6f27734cf54f92bda5ac2736d17, type: 3}
+  m_PrefabInstance: {fileID: 1402113221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &528258481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528258480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784265f04893aac498c51f7310bb295e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveForce: 10
+  jumpForce: 20
+  myBody: {fileID: 528258483}
+  myCollider2D: {fileID: 528258482}
+  sr: {fileID: 528258485}
+--- !u!61 &528258482 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2413244833466672629, guid: 2eb0e6f27734cf54f92bda5ac2736d17, type: 3}
+  m_PrefabInstance: {fileID: 1402113221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &528258483 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 8779010691628782031, guid: 2eb0e6f27734cf54f92bda5ac2736d17, type: 3}
+  m_PrefabInstance: {fileID: 1402113221}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &528258485 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1190463521819021304, guid: 2eb0e6f27734cf54f92bda5ac2736d17, type: 3}
+  m_PrefabInstance: {fileID: 1402113221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &533379109
 GameObject:
   m_ObjectHideFlags: 0
@@ -9158,7 +9195,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1213106195202340369, guid: 2eb0e6f27734cf54f92bda5ac2736d17, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 528258481}
   m_SourcePrefab: {fileID: 100100000, guid: 2eb0e6f27734cf54f92bda5ac2736d17, type: 3}
 --- !u!1 &1405002920
 GameObject:
