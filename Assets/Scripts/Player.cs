@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
+        PlayerJump();
     }
     private void PlayerMovement()
     {
@@ -75,6 +75,14 @@ public class Player : MonoBehaviour
         else
         {
             anim.SetBool(WALK_ANIMATION, false);
+        }
+    }
+
+    private void PlayerJump()
+    {
+        if(Input.GetButtonDown("Jump"))
+        {
+            myBody.AddForce (new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
 
