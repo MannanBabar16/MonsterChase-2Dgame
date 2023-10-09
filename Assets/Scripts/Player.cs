@@ -31,6 +31,10 @@ public class Player : MonoBehaviour
 
     private string WALK_ANIMATION = "Walk";
 
+    private string JUMP_ANIMATION = "Jump";
+
+
+
     private float movementX;
     private void Awake()
     {
@@ -51,6 +55,7 @@ public class Player : MonoBehaviour
         PlayerMovement();
         PlayerAnimation();
         PlayerJump();
+        
 
     }
     private void FixedUpdate()
@@ -87,7 +92,28 @@ public class Player : MonoBehaviour
         {
             isGrounded = false;
             myBody.AddForce (new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            PlayerJumpAnimation();
+            
         }
+    }
+
+    private void PlayerJumpAnimation()
+    {
+        if (movementX > 0f)
+        {
+            anim.SetBool(JUMP_ANIMATION, true);
+            sr.flipX = false;
+        }
+        else if (movementX < 0f)
+        {
+            anim.SetBool(JUMP_ANIMATION, true);
+            sr.flipX = true;
+        }
+        else
+        {
+            anim.SetBool(JUMP_ANIMATION, true);
+        }
+        
     }
 
 
@@ -95,6 +121,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag(GROUND_TAG))
         {
+            anim.SetBool(JUMP_ANIMATION, false);
             isGrounded = true;
         }
     }
