@@ -12,10 +12,12 @@ public class Player : MonoBehaviour
     private float moveForce = 10f;
 
     [SerializeField]
-    private float jumpForce = 20f;
+    private float jumpForce = 23f;
 
-  
-    
+    private bool isGrounded;
+
+    private string GROUND_TAG = "Ground";
+
     [SerializeField]
     private Rigidbody2D myBody;
 
@@ -48,11 +50,12 @@ public class Player : MonoBehaviour
     {
         PlayerMovement();
         PlayerAnimation();
-      
+        PlayerJump();
+
     }
     private void FixedUpdate()
     {
-        PlayerJump();
+        
     }
     private void PlayerMovement()
     {
@@ -80,11 +83,20 @@ public class Player : MonoBehaviour
 
     private void PlayerJump()
     {
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && isGrounded==true)
         {
+            isGrounded = false;
             myBody.AddForce (new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
 
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag(GROUND_TAG))
+        {
+            isGrounded = true;
+        }
+    }
+
 }
